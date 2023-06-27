@@ -1,6 +1,6 @@
 
 
-import { createContext } from 'react';
+import {  useContext } from 'react';
 import './App.css';
 import { AuthContext } from './Provider/AuthProvider';
 
@@ -8,7 +8,7 @@ import { AuthContext } from './Provider/AuthProvider';
 
 function App() {
 
-  const {loading, createUser} = createContext(AuthContext)
+  const {loading, createUser} = useContext(AuthContext);
 
 console.log('13', loading, createUser);
    
