@@ -8,9 +8,9 @@ import { AuthContext } from './Provider/AuthProvider';
 
 function App() {
 
-  const {loading, createUser} = useContext(AuthContext);
+  const {loading, createUser, user} = useContext(AuthContext);
 
-console.log('13', loading, createUser);
+console.log('13', loading, createUser, "user13"+user);
    
   return (
     <>
