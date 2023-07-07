@@ -1,16 +1,27 @@
 
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logos/Group1329.png';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
 
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => console.error(error))
+    };
 
     const menubarItems =
         <><li><Link to={`/`}>Home</Link></li>
             <li ><a>donation</a></li>
-            <li><a>Events</a></li>
-            <li><Link to='/blog'>blog</Link ></li></>
+            <li><Link>Events</Link></li>
+            <li><Link to='/blog'>blog</Link ></li>
+            <li>{user && <button onClick={handleLogOut} className='btn btn-sm btn-gos'>Log-Out</button>}</li>
+        </>
 
     return (
         <div className="navbar bg-base-100">
@@ -25,7 +36,7 @@ const NavBar = () => {
                         }
                     </ul>
                 </div>
-                <a><img className='w-1/3' src={logo} alt="logo-group"  /></a>
+                <a><img className='w-1/3' src={logo} alt="logo-group" /></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -36,7 +47,16 @@ const NavBar = () => {
             </div>
             <div className="navbar-end">
                 <Link to={`/register`} className="btn btn-info text-white mx-3">Registration</Link>
-                <a className="btn btn-neutral">Admin</a>
+                <a className="btn btn-neutral mx-3">Admin</a>
+                {
+                    user?.photoURL && <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+                        <div className="avatar">
+                            <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );

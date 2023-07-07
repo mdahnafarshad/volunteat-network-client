@@ -1,12 +1,13 @@
 import {
   createBrowserRouter
 } from "react-router-dom";
-import App from "../App";
 import Main from "../pages/Layout/Home/Main";
 import RegLayOut from "../pages/Layout/signIn/RegLayOut";
 import Registration from "../pages/Layout/signIn/Registration/Registration";
 import Login from "../pages/Layout/signIn/Login/Login";
 import Blog from "../pages/Blog/Blog";
+import Banner from "../pages/Layout/Home/home/Banner";
+import Donation from "../pages/Donation/Donation";
 
 
 
@@ -17,11 +18,17 @@ import Blog from "../pages/Blog/Blog";
       children:[
         {
             path:'/',
-            element: <App></App>,
+            element: <Banner></Banner>,
+            loader: ()=>fetch('http://localhost:5000/cards')
         },
         {
           path: "/blog",
           element: <Blog></Blog>,
+        },
+        {
+          path: "/donations/:id",
+          element: <Donation></Donation>,
+          loader: ({params})=> fetch(`http://localhost:5000/donate/${params.id}`)
         }
       ]
     },

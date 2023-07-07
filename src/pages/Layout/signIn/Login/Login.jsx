@@ -1,9 +1,58 @@
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
 
 const Login = () => {
+    const navigate = useNavigate();
+    const {logInUser} = useContext(AuthContext);
+    const [see, setSee] = useState(false);
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        logInUser(email, password)
+        .then(res => {
+            console.log(res)
+            navigate('/');
+            
+        })
+        .catch(err => console.error(err))
+    };
+
+
     return (
         <div>
-            login
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <form onSubmit={handleLogin} className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="text" name="email" placeholder="email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type={see?'text':'password'} name="password" placeholder="password" className="input input-bordered my-5" />
+                                <input onClick={()=>{setSee(!see)}} type="checkbox" className="toggle toggle-sm" />
+                                <label className="label">
+                                    <Link to={'/register'} className="label-text-alt link link-hover">if you are new!</Link>
+                                </label>
+                            </div>
+                            <div className="form-control mt-6">
+                                <input type={'submit'}  className="btn btn-primary" value='login'/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

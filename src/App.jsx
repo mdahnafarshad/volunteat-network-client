@@ -10,7 +10,7 @@ function App() {
 
   const {loading, createUser, user} = useContext(AuthContext);
 
-console.log('13', loading, createUser, "user13"+user);
+console.log('13', loading, createUser, "user13",{user});
    
   return (
     <>
