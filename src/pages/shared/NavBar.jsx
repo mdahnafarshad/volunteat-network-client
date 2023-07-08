@@ -17,10 +17,12 @@ const NavBar = () => {
 
     const menubarItems =
         <><li><Link to={`/`}>Home</Link></li>
-            <li ><a>donation</a></li>
-            <li><Link>Events</Link></li>
+            {
+                user && <><li ><a>donation</a></li>
+                    <li><Link>Events</Link></li></>
+            }
             <li><Link to='/blog'>blog</Link ></li>
-            <li>{user && <button onClick={handleLogOut} className='btn btn-sm btn-gos'>Log-Out</button>}</li>
+            <li>{user ? <button onClick={handleLogOut} className='btn btn-sm btn-gos'>Log-Out</button>: <Link to='/login'>Login</Link >}</li>
         </>
 
     return (

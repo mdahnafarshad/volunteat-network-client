@@ -8,6 +8,7 @@ import Login from "../pages/Layout/signIn/Login/Login";
 import Blog from "../pages/Blog/Blog";
 import Banner from "../pages/Layout/Home/home/Banner";
 import Donation from "../pages/Donation/Donation";
+import PrivateRout from "./PrivateRout";
 
 
 
@@ -27,7 +28,7 @@ import Donation from "../pages/Donation/Donation";
         },
         {
           path: "/donations/:id",
-          element: <Donation></Donation>,
+          element: <PrivateRout><Donation></Donation></PrivateRout>,
           loader: ({params})=> fetch(`http://localhost:5000/donate/${params.id}`)
         }
       ]

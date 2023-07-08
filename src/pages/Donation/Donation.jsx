@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router-dom";
 //  React day picker
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
 
 
 const Donation = () => {
@@ -15,13 +16,14 @@ const Donation = () => {
     const [Date, setStartDate] = useState(null)
 
 
-    const handleSubmit = (event) => {
+    const handleDataSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const name = form.name.value;
         const title = form.title.value;
         const photo = form.photo.value;
+
         const registerUser = { email, name, img: photo, title };
 
         console.log(registerUser, 'donation 27');
@@ -34,7 +36,18 @@ const Donation = () => {
             body: JSON.stringify(registerUser)
         })
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => {
+                console.log(data)
+                if(data?.insertedId){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your Donation has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            });
 
 
     };
@@ -44,7 +57,7 @@ const Donation = () => {
             <div className="hero min-h-screen bg-base-300 rounded-xl">
                 <div className="w-1/2 flex-col ">
                     <div className="card-side bg-base-100 shadow-xl">
-                        <form onSubmit={handleSubmit} className="card-body  my-5">
+                        <form onSubmit={handleDataSubmit} className="card-body  my-5">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

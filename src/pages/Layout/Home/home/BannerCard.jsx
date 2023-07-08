@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const BannerCard = ({data}) => {
     const {_id,title, photoURL} = data;
-    console.log(_id,title, photoURL);
+    
     return (
         <>
             <div className=" w-96 bg-base-100 mx-auto my-5 shadow-xl">
