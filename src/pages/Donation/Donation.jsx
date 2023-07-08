@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData, useLocation, useNavigate } from "react-router-dom";
 
 
 //  React day picker
@@ -14,7 +14,10 @@ const Donation = () => {
     const { user } = useContext(AuthContext);
     const { title, _id, photoURL } = useLoaderData();
     const [Date, setStartDate] = useState(null)
-
+    const location = useLocation();
+    const from = location.pathname;
+    const navigate = useNavigate();
+    console.log(from);
 
     const handleDataSubmit = (event) => {
         event.preventDefault();
@@ -26,7 +29,6 @@ const Donation = () => {
 
         const registerUser = { email, name, img: photo, title };
 
-        console.log(registerUser, 'donation 27');
         // create a new data object registered user data...
         fetch('http://localhost:5000/registerUser/', {
             method: 'POST',
@@ -37,7 +39,7 @@ const Donation = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data?.insertedId){
                     Swal.fire({
                         position: 'center',
@@ -46,6 +48,7 @@ const Donation = () => {
                         showConfirmButton: false,
                         timer: 1500
                       })
+                     navigate(from);
                 }
             });
 
