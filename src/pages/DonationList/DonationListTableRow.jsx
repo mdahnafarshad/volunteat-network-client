@@ -1,20 +1,11 @@
 
 
-const DonationListTableRow = ({data}) => {
+const DonationListTableRow = ({data, handleDelete}) => {
 
     
     const {title, img, name, email, _id} = data;
 
-    const handleDelete = (_id)=>{
-        console.log(_id);
-        fetch(`http://localhost:5000/donationList/${_id}`,
-        {
-            method: 'DELETE',
-        }
-        )
-        .then(res => res.json())
-        .then(data => console.log(data));
-    };
+    console.log(handleDelete, 'line 8');
 
     return (
         <>

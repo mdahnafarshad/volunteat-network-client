@@ -1,7 +1,9 @@
+
 import DonationListTableRow from "./DonationListTableRow";
 
 
-const DonationListTable = ({data}) => {
+const DonationListTable = ({data, handleDelete}) => {
+   console.log(handleDelete,'line 6');
    
     return (
         <div>
@@ -26,6 +28,7 @@ const DonationListTable = ({data}) => {
                         {
                             data.map(res => <DonationListTableRow
                             key={res._id}
+                            handleDelete={handleDelete}
                             data={res}
                             ></DonationListTableRow>)
                         }
