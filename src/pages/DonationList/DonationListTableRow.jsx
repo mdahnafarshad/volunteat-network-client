@@ -2,8 +2,19 @@
 
 const DonationListTableRow = ({data}) => {
 
-    console.log(data);
+    
     const {title, img, name, email, _id} = data;
+
+    const handleDelete = (_id)=>{
+        console.log(_id);
+        fetch(`http://localhost:5000/donationList/${_id}`,
+        {
+            method: 'DELETE',
+        }
+        )
+        .then(res => res.json())
+        .then(data => console.log(data));
+    };
 
     return (
         <>
@@ -33,7 +44,7 @@ const DonationListTableRow = ({data}) => {
                 </td>
                 <td>{_id}</td>
                 <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <button onClick={()=>{handleDelete(_id)}} className="btn btn-ghost btn-xs">delete</button>
                 </th>
             </tr>
         </>

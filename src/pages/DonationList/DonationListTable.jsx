@@ -2,7 +2,7 @@ import DonationListTableRow from "./DonationListTableRow";
 
 
 const DonationListTable = ({data}) => {
-    console.log(data);
+   
     return (
         <div>
             <div className="overflow-x-auto">
@@ -30,8 +30,6 @@ const DonationListTable = ({data}) => {
                             ></DonationListTableRow>)
                         }
                     </tbody>
-                    
-
                 </table>
             </div>
         </div>

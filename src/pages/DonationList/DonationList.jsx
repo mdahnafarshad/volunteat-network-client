@@ -11,6 +11,8 @@ const DonationList = () => {
 
     // const url = `localhost:5000//donationList?email=${user?.email}`;
    
+
+    // specific data need url 
     const url = `http://localhost:5000/donationList?email=${user?.email}`;
     console.log(user?.email,'user');
     useEffect(()=>{
@@ -23,10 +25,9 @@ const DonationList = () => {
         })
     },[url]);
 
-    console.log(data);
-
     return (
-        <div>
+        <div className="m-5 p-5">
+            <h3 className="text-3xl font-medium text-sky-400 text-center my-5">Specific Your Donation List Table</h3>
             <DonationListTable
             data={data}
             ></DonationListTable>
