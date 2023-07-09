@@ -18,7 +18,7 @@ const NavBar = () => {
     const menubarItems =
         <><li><Link to={`/`}>Home</Link></li>
             {
-                user && <><li ><a>donation</a></li>
+                user?.email && <><li ><Link to={`/donationList`}>My donation</Link></li>
                     <li><Link>Events</Link></li></>
             }
             <li><Link to='/blog'>blog</Link ></li>
