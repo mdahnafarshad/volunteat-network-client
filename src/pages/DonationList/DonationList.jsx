@@ -62,6 +62,29 @@ const DonationList = () => {
     };
 
 
+    // update a document 
+    const handleUpdate = (id) => {
+        console.log('handleUpdate', id) 
+        fetch(`http://localhost:5000/donationList/${id}`,{
+            method: 'PATCH',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'OKAY'}),
+        })
+        .then(res => res.json())
+        .then(data3 => {
+            console.log(data3);
+                if (data3.modifiedCount > 0) {
+                    // update state
+                    const remaining = data.filter(res => res._id !== id);
+                    const updated = data.find(res => res._id === id);
+                    updated.status = 'OKAY';
+                    const newBookings = [ ...remaining, updated];
+                    setData(newBookings);
+                }
+        });
+    }
 
 
     return (
@@ -70,6 +93,7 @@ const DonationList = () => {
             <DonationListTable
                 data={data}
                 handleDelete={handleDelete}
+                handleUpdate={handleUpdate}
             ></DonationListTable>
         </div>
     );
