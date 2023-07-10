@@ -10,7 +10,7 @@ const PrivateRout = ({children}) => {
 
     
     if(loading){
-        return <p className="text-3xl font-medium text-cyan-400 text-center">Loading.....</p>
+        return <div className=" text-center"><span className="loading loading-bars loading-lg text-secondary "></span></div>
     }
 
     if(user){

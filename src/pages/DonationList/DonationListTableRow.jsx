@@ -3,7 +3,7 @@
 const DonationListTableRow = ({data, handleDelete, handleUpdate}) => {
 
     
-    const {title, img, name, email, _id, status} = data;
+    const {title, img, name, email, _id, status, Date} = data;
     console.log(data);
     return (
         <>
@@ -12,6 +12,11 @@ const DonationListTableRow = ({data, handleDelete, handleUpdate}) => {
                     <label>
                         <p>{email}</p>
                     </label>
+                </th>
+                <th>
+                    {
+                        Date
+                    }
                 </th>
                 <td>
                     <div className="flex items-center space-x-3">

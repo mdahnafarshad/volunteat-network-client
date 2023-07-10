@@ -6,7 +6,7 @@ import DonationListTable from "./DonationListTable";
 
 
 const DonationList = () => {
-    const { user } = useContext(AuthContext);
+    const { user} = useContext(AuthContext);
     const [data, setData] = useState([]);
 
 
@@ -80,7 +80,7 @@ const DonationList = () => {
                     const remaining = data.filter(res => res._id !== id);
                     const updated = data.find(res => res._id === id);
                     updated.status = 'OKAY';
-                    const newBookings = [ ...remaining, updated];
+                    const newBookings = [ updated, ...remaining];
                     setData(newBookings);
                 }
         });
@@ -89,7 +89,7 @@ const DonationList = () => {
 
     return (
         <div className="m-5 p-5">
-            <h3 className="text-3xl font-medium text-sky-400 text-center my-5">Specific Your Donation List Table</h3>
+            <h3 className="text-3xl font-medium text-sky-400 text-center my-5">Volunteer register list</h3>
             <DonationListTable
                 data={data}
                 handleDelete={handleDelete}

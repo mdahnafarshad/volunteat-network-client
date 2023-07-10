@@ -34,7 +34,7 @@ import DonationList from "../pages/DonationList/DonationList";
         },
         {
           path: "/donationList",
-          element: <DonationList></DonationList>,
+          element: <PrivateRout><DonationList></DonationList></PrivateRout>,
         }
       ]
     },

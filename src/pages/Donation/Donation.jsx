@@ -27,7 +27,7 @@ const Donation = () => {
         const title = form.title.value;
         const photo = form.photo.value;
 
-        const registerUser = { email, name, img: photo, title };
+        const registerUser = { email, name, img: photo, title, Date};
 
         // create a new data object registered user data...
         fetch('http://localhost:5000/registerUser/', {

@@ -16,6 +16,7 @@ const DonationListTable = ({data, handleDelete, handleUpdate}) => {
                                     <h3>Email</h3>
                                 </label>
                             </th>
+                            <th>date</th>
                             <th>Name</th>
                             <th>item No</th>
                             <th>Donation Id</th>

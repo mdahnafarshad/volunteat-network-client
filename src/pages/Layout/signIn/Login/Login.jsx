@@ -20,9 +20,26 @@ const Login = () => {
         const password = form.password.value;
         logInUser(email, password)
             .then(res => {
-                console.log(res);
-                navigate(from, { replace: true });
-                form.reset();
+                console.log(res, 'line 23');
+                const loggedUser = {email: res.user?.email};
+                console.log(loggedUser);
+                
+                // call the jwt token 
+                fetch('http://localhost:5000/jwt',{
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(loggedUser)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data, 'line30')
+                    localStorage.setItem('access-token', data.token);
+                    navigate(from, { replace: true });
+                    // form.reset();
+                });
+                
 
             })
             .catch(err => {
