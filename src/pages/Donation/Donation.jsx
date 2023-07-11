@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import {  useLoaderData, useLocation, useNavigate } from "react-router-dom";
 
 
 //  React day picker

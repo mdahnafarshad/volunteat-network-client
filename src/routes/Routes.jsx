@@ -1,15 +1,15 @@
 import {
   createBrowserRouter
 } from "react-router-dom";
-import Main from "../pages/Layout/Home/Main";
-import RegLayOut from "../pages/Layout/signIn/RegLayOut";
-import Registration from "../pages/Layout/signIn/Registration/Registration";
-import Login from "../pages/Layout/signIn/Login/Login";
 import Blog from "../pages/Blog/Blog";
-import Banner from "../pages/Layout/Home/home/Banner";
 import Donation from "../pages/Donation/Donation";
-import PrivateRout from "./PrivateRout";
 import DonationList from "../pages/DonationList/DonationList";
+import Banner from "../pages/Layout/Home/home/Banner";
+import Main from "../pages/Layout/Home/Main";
+import Login from "../pages/Layout/signIn/Login/Login";
+import Registration from "../pages/Layout/signIn/Registration/Registration";
+import RegLayOut from "../pages/Layout/signIn/RegLayOut";
+import PrivateRout from "./PrivateRout";
 
 
 
