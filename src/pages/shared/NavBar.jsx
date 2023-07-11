@@ -50,7 +50,9 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={`/register`} className="btn btn-info text-white mx-3">Registration</Link>
+                {
+                    user?.email ? ' ': <Link to={`/register`} className="btn btn-info text-white mx-3">Registration</Link>
+                }
                 <a className="btn btn-neutral mx-3">Admin</a>
                 {
                     user?.photoURL && <div className="tooltip tooltip-left" data-tip={user?.displayName}>
