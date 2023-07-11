@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import DonationListTable from "./DonationListTable";
@@ -8,6 +9,7 @@ import DonationListTable from "./DonationListTable";
 const DonationList = () => {
     const { user} = useContext(AuthContext);
     const [data, setData] = useState([]);
+    const navigate = useNavigate()
 
 
     // const url = `localhost:5000//donationList?email=${user?.email}`;
@@ -16,14 +18,27 @@ const DonationList = () => {
     // specific data need url 
     const url = `http://localhost:5000/donationList?email=${user?.email}`;
     useEffect(() => {
-        fetch(url)
+
+
+        // use the jwt api into the headers method and signIn page using 
+        fetch(url, {
+            method: 'GET',
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('access-token')}`,
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
-                setData(data);
+                if(!data.error){
+                    setData(data);
+                }else{
+                    // logout and then navigate
+                    navigate('/');
+                }
 
             })
-    }, [url]);
+    }, [url, navigate]);
 
 
 

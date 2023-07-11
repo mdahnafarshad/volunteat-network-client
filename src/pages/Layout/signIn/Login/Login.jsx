@@ -24,7 +24,7 @@ const Login = () => {
                 const loggedUser = {email: res.user?.email};
                 console.log(loggedUser);
                 
-                // call the jwt token 
+                // create the jwt token  store the local storage 
                 fetch('http://localhost:5000/jwt',{
                     method: 'POST',
                     headers: {
