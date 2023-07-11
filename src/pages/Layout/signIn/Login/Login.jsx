@@ -25,7 +25,7 @@ const Login = () => {
                 console.log(loggedUser);
                 
                 // create the jwt token  store the local storage 
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://volunteer-network-server-flax.vercel.app/jwt',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

@@ -15,7 +15,7 @@ const DonationList = () => {
 
 
     // specific data need url 
-    const url = `http://localhost:5000/donationList?email=${user?.email}`;
+    const url = `https://volunteer-network-server-flax.vercel.app/donationList?email=${user?.email}`;
     useEffect(() => {
 
 
@@ -54,7 +54,7 @@ const DonationList = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/donationList/${id}`,
+                fetch(`https://volunteer-network-server-flax.vercel.app/donationList/${id}`,
                     {
                         method: 'DELETE',
                     }
@@ -79,7 +79,7 @@ const DonationList = () => {
     // update a document 
     const handleUpdate = (id) => {
         console.log('handleUpdate', id) 
-        fetch(`http://localhost:5000/donationList/${id}`,{
+        fetch(`https://volunteer-network-server-flax.vercel.app/donationList/${id}`,{
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json'

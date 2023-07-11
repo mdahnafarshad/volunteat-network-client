@@ -21,7 +21,7 @@ import PrivateRout from "./PrivateRout";
         {
             path:'/',
             element: <Banner></Banner>,
-            loader: ()=>fetch('http://localhost:5000/cards')
+            loader: ()=>fetch('https://volunteer-network-server-flax.vercel.app/cards')
         },
         {
           path: "/blog",
@@ -30,7 +30,7 @@ import PrivateRout from "./PrivateRout";
         {
           path: "/donations/:id",
           element: <PrivateRout><Donation></Donation></PrivateRout>,
-          loader: ({params})=> fetch(`http://localhost:5000/donate/${params.id}`)
+          loader: ({params})=> fetch(`https://volunteer-network-server-flax.vercel.app/donate/${params.id}`)
         },
         {
           path: "/donationList",

@@ -30,7 +30,7 @@ const Donation = () => {
         const registerUser = { email, name, img: photo, title, Date};
 
         // create a new data object registered user data...
-        fetch('http://localhost:5000/registerUser/', {
+        fetch('https://volunteer-network-server-flax.vercel.app/registerUser/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
