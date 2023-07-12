@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../../../hook/useTitle";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 
@@ -12,7 +13,7 @@ const Login = () => {
     console.log(testLocation , 'line 12 login');
     const { logInUser } = useContext(AuthContext);
     const [see, setSee] = useState(false);
-
+    useTitle('Login');
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;

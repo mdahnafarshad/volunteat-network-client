@@ -1,3 +1,5 @@
+
+
 import {
   createBrowserRouter
 } from "react-router-dom";
@@ -11,9 +13,10 @@ import Registration from "../pages/Layout/signIn/Registration/Registration";
 import RegLayOut from "../pages/Layout/signIn/RegLayOut";
 import PrivateRout from "./PrivateRout";
 
-
+  
 
   const router = createBrowserRouter([
+
     {
       path: "/",
       element: <Main></Main>,

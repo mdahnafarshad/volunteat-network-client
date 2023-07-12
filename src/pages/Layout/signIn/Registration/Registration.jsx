@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../../../hook/useTitle";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 
 const Registration = () => {
     const { createUser, updateUser } = useContext(AuthContext)
     const navigate = useNavigate();
+    useTitle('Registration');
     // const location = useLocation();
 
     const handleRegister = (event) => {

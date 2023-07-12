@@ -1,24 +1,27 @@
-import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../../hook/useTitle";
 import BannerCard from "./BannerCard";
 
 
 const Banner = () => {
     const data = useLoaderData();
 
-    useEffect(()=>{
-        // fetch('/cards')
-    },[])
-    return (
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+    useTitle('Home')
+    
+    
+        return (<div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
             {
                 data.map(res => <BannerCard
-                key={res._id}
-                data={res}
+                    key={res._id}
+                    data={res}
                 ></BannerCard>)
             }
-        </div>
-    );
+        </div>)
+    
+
+
+
+    
 };
 
 export default Banner;

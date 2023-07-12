@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hook/useTitle";
 import { AuthContext } from "../../Provider/AuthProvider";
 import DonationListTable from "./DonationListTable";
 
@@ -9,6 +10,7 @@ const DonationList = () => {
     const { user} = useContext(AuthContext);
     const [data, setData] = useState([]);
     const navigate = useNavigate()
+    useTitle('donationList');
 
 
     // const url = `localhost:5000//donationList?email=${user?.email}`;
